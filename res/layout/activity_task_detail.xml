@@ -1,0 +1,37 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/GridLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    
+    android:stretchColumns="1"
+    tools:context=".TaskDetailActivity" >
+
+    <TableRow>
+        <TextView android:text="Názov:" />
+        <EditText android:id="@+id/txtName"/>
+        
+    </TableRow>
+
+    <TableRow>
+        <TextView android:text="Termín:"/>
+        
+        <EditText android:id="@+id/txtDeadline"/>        
+    </TableRow>
+    
+    <TableRow>
+        <!-- android:layout_span="2" -->
+        <TextView android:text="Hotová:"/>
+        
+		<CheckBox android:id="@+id/chkDone" 
+		    android:layout_gravity="right"
+		    />        
+    </TableRow>
+
+
+    
+</TableLayout>
