@@ -46,6 +46,12 @@ public class TaskDetailActivity extends Activity {
 			}
 		}
 	}
+	
+	@Override
+	protected void onDestroy() {
+		taskDao.close();
+		super.onDestroy();
+	}	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
