@@ -38,7 +38,7 @@ public class TaskListActivity extends ListActivity {
 	}
 
 	private void resetListAdapter() {
-		String[] from = { Database.Tasks.DESCRIPTION, Database.Tasks.DEADLINE };
+		String[] from = { Database.Task.DESCRIPTION, Database.Task.DEADLINE };
 		int[] to = { android.R.id.text1, android.R.id.text2 };
 		Cursor cursor = taskDao.list();	
 		startManagingCursor(cursor);
@@ -46,8 +46,8 @@ public class TaskListActivity extends ListActivity {
 		listAdapter.setViewBinder(new ViewBinder() {
 			@Override
 			public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
-				if(columnIndex == cursor.getColumnIndex(Database.Tasks.DESCRIPTION)) { 
-					int isDoneFlag = cursor.getInt(cursor.getColumnIndex(Database.Tasks.IS_DONE));
+				if(columnIndex == cursor.getColumnIndex(Database.Task.DESCRIPTION)) { 
+					int isDoneFlag = cursor.getInt(cursor.getColumnIndex(Database.Task.IS_DONE));
 					TextView text1 = (TextView) view;
 					if(isDoneFlag != 0) {
 						text1.setPaintFlags(text1.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);

@@ -27,20 +27,20 @@ public class TaskDatabaseOpenHelper extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		StringBuilder sql = new StringBuilder("CREATE TABLE ")
-			.append(Database.Tasks.TABLE_NAME)
+			.append(Database.Task.TABLE_NAME)
 			.append("(")
-			.append(Database.Tasks._ID).append(" INTEGER PRIMARY KEY AUTOINCREMENT,")
-			.append(Database.Tasks.DESCRIPTION).append(" TEXT,")
-			.append(Database.Tasks.IS_DONE).append(" BOOLEAN,")
-			.append(Database.Tasks.DEADLINE).append(" DATE")
+			.append(Database.Task._ID).append(" INTEGER PRIMARY KEY AUTOINCREMENT,")
+			.append(Database.Task.DESCRIPTION).append(" TEXT,")
+			.append(Database.Task.IS_DONE).append(" BOOLEAN,")
+			.append(Database.Task.DEADLINE).append(" DATE")
 			.append(")");
 		db.execSQL(sql.toString());
 		
 		ContentValues values = new ContentValues();
-		values.put(Database.Tasks.DESCRIPTION, "Lunch");
-		values.put(Database.Tasks.IS_DONE, 0);
-		values.put(Database.Tasks.DEADLINE, new Date().toString());
-		db.insert(Database.Tasks.TABLE_NAME, CursorUtils.NO_NULL_COLUMN_HACK, values);
+		values.put(Database.Task.DESCRIPTION, "Lunch");
+		values.put(Database.Task.IS_DONE, 0);
+		values.put(Database.Task.DEADLINE, new Date().toString());
+		db.insert(Database.Task.TABLE_NAME, CursorUtils.NO_NULL_COLUMN_HACK, values);
 	}
 
 	@Override

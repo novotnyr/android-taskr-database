@@ -38,9 +38,9 @@ public class TaskDetailActivity extends Activity {
 		if(taskId != UNKNOWN_TASK_ID) {
 			Cursor taskCursor = taskDao.getTask(taskId);
 			if(taskCursor.moveToNext()) {
-				txtName.setText(taskCursor.getString(taskCursor.getColumnIndex(Database.Tasks.DESCRIPTION)));
-				txtDeadline.setText(taskCursor.getString(taskCursor.getColumnIndex(Database.Tasks.DEADLINE)));
-				chkDone.setChecked(taskCursor.getInt(taskCursor.getColumnIndex(Database.Tasks.IS_DONE)) != 0);
+				txtName.setText(taskCursor.getString(taskCursor.getColumnIndex(Database.Task.DESCRIPTION)));
+				txtDeadline.setText(taskCursor.getString(taskCursor.getColumnIndex(Database.Task.DEADLINE)));
+				chkDone.setChecked(taskCursor.getInt(taskCursor.getColumnIndex(Database.Task.IS_DONE)) != 0);
 			} else {
 				throw new IllegalStateException("No task with ID [" + + taskId + "] found in database.");
 			}
@@ -73,10 +73,10 @@ public class TaskDetailActivity extends Activity {
 
 	private void saveTaskAndFinish() {
 		ContentValues contentValues = new ContentValues();
-		contentValues.put(Database.Tasks._ID, taskId);
-		contentValues.put(Database.Tasks.DESCRIPTION, txtName.getText().toString());
-		contentValues.put(Database.Tasks.DEADLINE, txtDeadline.getText().toString());
-		contentValues.put(Database.Tasks.IS_DONE, chkDone.isChecked() ? 1 : 0);
+		contentValues.put(Database.Task._ID, taskId);
+		contentValues.put(Database.Task.DESCRIPTION, txtName.getText().toString());
+		contentValues.put(Database.Task.DEADLINE, txtDeadline.getText().toString());
+		contentValues.put(Database.Task.IS_DONE, chkDone.isChecked() ? 1 : 0);
 		
 		taskDao.saveOrUpdate(contentValues);
 		

@@ -6,7 +6,7 @@ public interface Database {
     public static final String NAME = "tasks";
 	public static final int VERSION = 1;
 
-	public interface Tasks extends BaseColumns {
+	public interface Task extends BaseColumns {
 		public static final String TABLE_NAME = "task";
 
 		public static final String DESCRIPTION = "description";
